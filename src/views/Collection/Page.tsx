@@ -21,6 +21,8 @@ import { RichTextContent } from "@components/atoms";
 import { commonMessages } from "@temp/intl";
 import { IFilterAttributes, IFilters } from "@types";
 import { usePreferences } from "@hooks";
+import { LazyLoadImage } from "react-lazy-load-image-component";
+import "react-lazy-load-image-component/src/effects/blur.css";
 import {
   ProductListHeader,
   ProductListHeaderStories,
@@ -175,7 +177,11 @@ const Page: React.FC<PageProps> = ({
         collection.id !== "Q29sbGVjdGlvbjo1NA==" ? (
           <div className="collection__container">
             <div className="collection__image">
-              <img src={collection.backgroundImage.url} alt={collection.slug} />
+              <LazyLoadImage
+                src={collection.backgroundImage.url}
+                alt={collection.slug}
+                effect="blur"
+              />
             </div>
             <div className="collection__content">
               <S.SocialShareSelection>
