@@ -25,6 +25,7 @@ export const Routes: React.FC = () => (
     <Route path={paths.productUrl} component={ProductPage} />
     <Route path={paths.cartUrl} component={CartPage} />
     <Route path={paths.checkoutLoginUrl} component={CheckoutLogin} />
+    <Route path={paths.pageUrl} component={ArticlePage} />
     <Route path={accountPaths.baseUrl} component={UserAccount} />
     <Route path={paths.afterPayRedirectUrl} component={AfterPayRedirect} />
     <Route path={accountPaths.userOrderDetailsUrl} component={OrderDetails} />
