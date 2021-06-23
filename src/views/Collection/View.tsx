@@ -106,7 +106,7 @@ export const View: React.FC<ViewProps> = ({ match }) => {
     pageSize: PRODUCTS_PER_PAGE,
     priceGte: null,
     priceLte: null,
-    sortBy: sort || "updated_at",
+    sortBy: sort || "-updated_at",
   };
   const variablesStories = {
     ...filtersStories,
