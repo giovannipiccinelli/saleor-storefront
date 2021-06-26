@@ -6,4 +6,5 @@ export interface IImage {
   alt?: string;
   children?: React.ReactElement;
   defaultImage?: string;
+  noLazyLoading?: boolean;
 }

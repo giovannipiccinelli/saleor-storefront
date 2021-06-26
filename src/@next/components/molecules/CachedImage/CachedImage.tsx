@@ -14,6 +14,7 @@ export const CachedImage: React.FC<IImage> = ({
   alt,
   children,
   defaultImage = NoPhoto,
+  noLazyLoading,
   ...props
 }: IImage) => {
   const [isUnavailable, setUnavailable] = React.useState(false);
@@ -47,7 +48,17 @@ export const CachedImage: React.FC<IImage> = ({
     return children || <PlaceholderImage alt={alt} />;
   }
 
-  return (
+  return noLazyLoading ? (
+    <img
+      {...props}
+      src={url}
+      srcSet={url2x ? `${url} 1x, ${url2x} 2x` : `${url} 1x`}
+      alt={alt}
+      style={{ animation: "load 1s" }}
+      // navigator.onLine is not always accurate
+      onError={() => setUnavailable(true)}
+    />
+  ) : (
     <LazyLoadImage
       {...props}
       src={url}
