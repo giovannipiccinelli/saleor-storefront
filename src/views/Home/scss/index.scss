@@ -14,6 +14,7 @@
     text-align: center;
     padding: 12rem 0;
     margin-top: 90px;
+    animation: load 1s;
 
     &-text {
       overflow: hidden;
@@ -87,6 +88,24 @@
       margin-bottom: 1rem;
     }
 
+    span {
+      display: inline-block;
+      height: 30rem;
+      overflow: hidden;
+
+      img {
+        height: auto;
+        width: auto;
+        max-width: 100%;
+        min-height: 30rem;
+        position: relative;
+        transform: translate(-50%, -50%);
+        top: 50%;
+        left: 50%;
+        object-fit: cover;
+      }
+    }
+
     &__list {
       display: grid;
       grid-template-columns: 1fr;
@@ -137,5 +156,14 @@
         }
       }
     }
+  }
+}
+
+@keyframes load {
+  0% {
+    filter: blur(20px);
+  }
+  100% {
+    filter: blur(0px);
   }
 }
