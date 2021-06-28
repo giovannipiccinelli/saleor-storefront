@@ -21,6 +21,7 @@
     background-size: cover;
     background-color: $blue-overlay;
     background-blend-mode: multiply;
+    animation: load 1s;
 
     &__title {
       display: inline-block;
@@ -171,5 +172,14 @@
         }
       }
     }
+  }
+}
+
+@keyframes load {
+  0% {
+    filter: blur(20px);
+  }
+  100% {
+    filter: blur(0px);
   }
 }

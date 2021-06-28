@@ -5,6 +5,7 @@
     margin-top: -3rem;
     background-color: white;
     padding: 3rem 10rem;
+    animation: pulse 1s;
     @media (max-width: $small-screen) {
       padding: 1rem 2rem;
     }
@@ -100,5 +101,11 @@
       height: 100%;
     }
 
+  }
+}
+
+@keyframes pulse {
+  100% {
+    filter: blur(0px);
   }
 }
