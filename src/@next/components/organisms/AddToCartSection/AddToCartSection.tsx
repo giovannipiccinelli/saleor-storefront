@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import { useIntl } from "react-intl";
-import { Link, Redirect } from "react-router-dom";
+import { Link } from "react-router-dom";
+import { PersonalizationFormModal } from "@components/organisms/PersonalizationFormModal";
 
 import {
   FacebookShareButton,
@@ -13,7 +14,7 @@ import {
   EmailIcon,
 } from "react-share";
 
-import { commonMessages } from "@temp/intl";
+import { checkoutMessages, commonMessages } from "@temp/intl";
 import { ICheckoutModelLine } from "@saleor/sdk/lib/helpers";
 import {
   ProductDetails_product_pricing,
@@ -74,6 +75,10 @@ const AddToCartSection: React.FC<IAddToCartSection> = ({
     variantPricing,
     setVariantPricing,
   ] = useState<ProductDetails_product_variants_pricing | null>(null);
+  const [
+    displayModalPersonalisation,
+    setDisplayModalPersonalisation,
+  ] = useState<boolean>(false);
 
   const availableQuantity = getAvailableQuantity(
     items,
@@ -124,9 +129,6 @@ const AddToCartSection: React.FC<IAddToCartSection> = ({
     setVariantPricing(selectedVariant?.pricing);
     setVariantStock(selectedVariant?.quantityAvailable);
   };
-
-  const mailToUrl = `mailto:concierge@storitalia.com?&subject=${name}`;
-
   const collectionId =
     process.env.COLLECTION_ID !== "false" ? process.env.COLLECTION_ID : null;
 
@@ -180,12 +182,10 @@ const AddToCartSection: React.FC<IAddToCartSection> = ({
           {getProductPrice(productPricing, variantPricing)}
         </S.ProductPricing>
       )}
-      <a href={mailToUrl}>
-        <CustomizeButton
-          onSubmit={() => <Redirect to="/" />}
-          disabled={disableButton}
-        />
-      </a>
+      <CustomizeButton
+        onSubmit={() => setDisplayModalPersonalisation(true)}
+        disabled={disableButton}
+      />
       {noPurchaseAvailable &&
         renderErrorMessage(
           intl.formatMessage(commonMessages.noPurchaseAvailable),
@@ -239,6 +239,16 @@ const AddToCartSection: React.FC<IAddToCartSection> = ({
         onSubmit={() => onAddToCart(variantId, quantity)}
         disabled={disableButton}
       />
+      {displayModalPersonalisation && (
+        <PersonalizationFormModal
+          hideModal={() => {
+            setDisplayModalPersonalisation(false);
+          }}
+          submitBtnText={intl.formatMessage(commonMessages.save)}
+          title={intl.formatMessage(checkoutMessages.personalization)}
+          formId="personalisation-form"
+        />
+      )}
     </S.AddToCartSelection>
   );
 };

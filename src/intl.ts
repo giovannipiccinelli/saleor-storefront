@@ -193,6 +193,9 @@ export const checkoutMessages = defineMessages({
   continueShopping: {
     defaultMessage: "CONTINUE SHOPPING",
   },
+  personalization: {
+    defaultMessage: "Go through personalization",
+  },
 });
 
 export const prodListHeaderCommonMsg = defineMessages({
