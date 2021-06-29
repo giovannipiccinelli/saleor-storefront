@@ -28,5 +28,6 @@ export * from "./Select";
 export * from "./ShadowBox";
 export * from "./SocialMediaIcon";
 export * from "./StripeInputElement";
+export * from "./Textarea";
 export * from "./Tile";
 export * from "./TileGrid";
