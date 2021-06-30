@@ -36,10 +36,7 @@ export const PersonalizationFormModal: React.FC<IProps> = ({
         {...props}
         {...{ errors }}
         formId={formId}
-        handleSubmit={data => {
-          console.log("data", data);
-          hideModal();
-        }}
+        handleSubmit={() => hideModal()}
       />
     </Modal>
   );
