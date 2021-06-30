@@ -2,6 +2,7 @@ import React, { useCallback } from "react";
 import { useIntl } from "react-intl";
 
 import { TextField } from "@components/molecules";
+import { TextareaField } from "@components/molecules";
 import { commonMessages } from "@temp/intl";
 
 import * as S from "./styles";
@@ -59,7 +60,7 @@ export const PersonalizationFormContent: React.FC<PropsWithFormik> = ({
           />
         </S.RowWithTwoCells>
         <S.RowWithOneCell>
-          <TextField
+          <TextareaField
             name="description"
             label={intl.formatMessage({ defaultMessage: "Description" })}
             value={values!.description}
