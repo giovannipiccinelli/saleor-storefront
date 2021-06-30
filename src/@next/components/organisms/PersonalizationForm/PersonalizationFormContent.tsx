@@ -1,8 +1,8 @@
 import React, { useCallback } from "react";
 import { useIntl } from "react-intl";
 
-import { TextField } from "@components/molecules";
-import { TextareaField } from "@components/molecules";
+import { TextField } from "@components/molecules/TextField";
+import { TextareaField } from "@components/molecules/TextareaField";
 import { commonMessages } from "@temp/intl";
 
 import * as S from "./styles";
