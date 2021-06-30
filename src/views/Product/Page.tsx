@@ -1,7 +1,8 @@
 import classNames from "classnames";
-import React from "react";
+import React, { useRef, useEffect } from "react";
 import Media from "react-media";
 import { usePreferences } from "@hooks";
+import LoadingBar from "react-top-loading-bar";
 import { ProductDescription } from "@components/molecules";
 import { ProductGallery } from "@components/organisms";
 import AddToCartSection from "@components/organisms/AddToCartSection";
@@ -43,6 +44,12 @@ const Page: React.FC<
   const productGallery: React.RefObject<HTMLDivElement> = React.useRef();
 
   const [variantId, setVariantId] = React.useState("");
+
+  const ref = useRef(null);
+
+  useEffect(() => {
+    ref.current.complete();
+  }, []);
 
   const {
     preferences: { locale },
@@ -94,6 +101,7 @@ const Page: React.FC<
 
   return (
     <div className="product-page">
+      <LoadingBar color="#0D233F" ref={ref} loaderSpeed={500} />
       <div className="container">
         <Breadcrumbs breadcrumbs={populateBreadcrumbs(product)} />
       </div>
