@@ -96,6 +96,7 @@ const CheckoutReviewSubpageWithRef: RefForwardingComponent<
       window?.dataLayer.push(dataLayer);
       // eslint-disable-next-line func-names
       // @ts-ignore
+      // eslint-disable-next-line func-names
       window?.dataLayer.push(function (this: any) {
         this.reset();
       });
@@ -177,6 +178,7 @@ const CheckoutReviewSubpageWithRef: RefForwardingComponent<
               window?.dataLayer.push(dataLayer);
               // eslint-disable-next-line func-names
               // @ts-ignore
+              // eslint-disable-next-line func-names
               window?.dataLayer.push(function (this: any) {
                 this.reset();
               });
@@ -221,6 +223,7 @@ const CheckoutReviewSubpageWithRef: RefForwardingComponent<
       return;
     }
     stripe?.retrievePaymentIntent(paymentCISecret).then(async result => {
+      // eslint-disable-next-line no-console
       console.log(result);
       if (result.error) {
         changeSubmitProgress(false);
@@ -233,6 +236,7 @@ const CheckoutReviewSubpageWithRef: RefForwardingComponent<
         setErrors(error);
         onSubmitFailure(error);
       } else {
+        // eslint-disable-next-line no-console
         console.log(result);
         if (result?.paymentIntent?.status === "requires_confirmation") {
           const response = await completeCheckout();
@@ -263,6 +267,7 @@ const CheckoutReviewSubpageWithRef: RefForwardingComponent<
               window?.dataLayer.push(dataLayer);
               // eslint-disable-next-line func-names
               // @ts-ignore
+              // eslint-disable-next-line func-names
               window?.dataLayer.push(function (this: any) {
                 this.reset();
               });

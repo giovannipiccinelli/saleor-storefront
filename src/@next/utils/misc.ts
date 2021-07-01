@@ -34,6 +34,7 @@ export function getJsonFromUrl(
   // @ts-ignore
   const result: { [key: string]: string | Array } = {};
 
+  // eslint-disable-next-line func-names
   query.split("&").forEach(function (part) {
     if (!part) return;
     part = part.split("+").join(" "); // replace every + with space, regexp-free version
