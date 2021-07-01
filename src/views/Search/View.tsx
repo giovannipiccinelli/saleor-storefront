@@ -5,7 +5,7 @@ import { RouteComponentProps } from "react-router";
 import { prodListHeaderCommonMsg } from "@temp/intl";
 import { IFilters } from "@types";
 import { StringParam, useQueryParam } from "use-query-params";
-import { NotFound, OfflinePlaceholder } from "../../components";
+import { LoadingBarLine, NotFound, OfflinePlaceholder } from "../../components";
 import NetworkStatus from "../../components/NetworkStatus";
 import { PRODUCTS_PER_PAGE } from "../../core/config";
 import {
@@ -159,31 +159,34 @@ export const View: React.FC<ViewProps> = ({ match }) => {
                 );
 
               return (
-                <Page
-                  clearFilters={clearFilters}
-                  attributes={data.attributes.edges.map(edge => edge.node)}
-                  displayLoader={loading}
-                  hasNextPage={maybe(
-                    () => data.products.pageInfo.hasNextPage,
-                    false
-                  )}
-                  sortOptions={sortOptions}
-                  setSearch={setSearch}
-                  search={search}
-                  activeSortOption={filters.sortBy}
-                  filters={filters}
-                  products={data.products}
-                  onAttributeFiltersChange={onFiltersChange}
-                  onLoadMore={handleLoadMore}
-                  activeFilters={
-                    filters!.attributes
-                      ? Object.keys(filters!.attributes).length
-                      : 0
-                  }
-                  onOrder={value => {
-                    setSort(value.value);
-                  }}
-                />
+                <>
+                  <LoadingBarLine />
+                  <Page
+                    clearFilters={clearFilters}
+                    attributes={data.attributes.edges.map(edge => edge.node)}
+                    displayLoader={loading}
+                    hasNextPage={maybe(
+                      () => data.products.pageInfo.hasNextPage,
+                      false
+                    )}
+                    sortOptions={sortOptions}
+                    setSearch={setSearch}
+                    search={search}
+                    activeSortOption={filters.sortBy}
+                    filters={filters}
+                    products={data.products}
+                    onAttributeFiltersChange={onFiltersChange}
+                    onLoadMore={handleLoadMore}
+                    activeFilters={
+                      filters!.attributes
+                        ? Object.keys(filters!.attributes).length
+                        : 0
+                    }
+                    onOrder={value => {
+                      setSort(value.value);
+                    }}
+                  />
+                </>
               );
             }
 

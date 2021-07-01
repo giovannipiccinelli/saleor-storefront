@@ -6,7 +6,12 @@ import { prodListHeaderCommonMsg } from "@temp/intl";
 import { IFilters } from "@types";
 import { StringParam, useQueryParam } from "use-query-params";
 import { Loader } from "@components/atoms";
-import { MetaWrapper, NotFound, OfflinePlaceholder } from "../../components";
+import {
+  LoadingBarLine,
+  MetaWrapper,
+  NotFound,
+  OfflinePlaceholder,
+} from "../../components";
 import { Category_category } from "./gqlTypes/Category";
 import NetworkStatus from "../../components/NetworkStatus";
 import { PRODUCTS_PER_PAGE } from "../../core/config";
@@ -199,6 +204,7 @@ export const View: React.FC<ViewProps> = ({ match }) => {
                           type: "product.category",
                         }}
                       >
+                        <LoadingBarLine />
                         <Page
                           headerImage={getHeaderImage(
                             categoryData.data.category
