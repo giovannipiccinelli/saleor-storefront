@@ -15,7 +15,7 @@ import {
   baseUrl,
   orderHistoryUrl,
 } from "../../app/routes";
-import { Breadcrumbs, Loader } from "../../components";
+import { Breadcrumbs, Loader, LoadingBarLine } from "../../components";
 
 import "./scss/index.scss";
 
@@ -57,6 +57,7 @@ const Account: React.FC<RouteComponentProps> = ({ history, match }) => {
 
   return (
     <div className="container">
+      <LoadingBarLine />
       <Breadcrumbs
         breadcrumbs={[
           {

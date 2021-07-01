@@ -32,7 +32,7 @@ import {
   ProductListStories,
   ProductListProjects,
 } from "../../@next/components/organisms";
-import { ProductsFeatured } from "../../components";
+import { LoadingBarLine, ProductsFeatured } from "../../components";
 import { maybe } from "../../core/utils";
 
 import { FilterSidebar } from "../../@next/components/organisms/FilterSidebar";
@@ -151,6 +151,7 @@ const Page: React.FC<PageProps> = ({
 
   return (
     <div className="collection">
+      <LoadingBarLine />
       {MetaBackground && (
         <div
           className="article-page__header"

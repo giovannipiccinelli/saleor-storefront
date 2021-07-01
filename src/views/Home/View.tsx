@@ -2,7 +2,7 @@ import "./scss/index.scss";
 
 import * as React from "react";
 
-import { MetaWrapper } from "../../components";
+import { LoadingBarLine, MetaWrapper } from "../../components";
 import Page from "./Page";
 import { TypedHomePageQuery } from "./queries";
 
@@ -17,6 +17,7 @@ const View: React.FC = () => (
               title: data.shop ? data.shop.name : "",
             }}
           >
+            <LoadingBarLine />
             <Page
               loading={loading}
               backgroundImage={
