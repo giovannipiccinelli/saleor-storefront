@@ -5,6 +5,7 @@ import { FormattedMessage } from "react-intl";
 import { Link } from "react-router-dom";
 import { BASE_URL } from "../../core/config";
 import Button from "../Button";
+import { LoadingBarLine } from "..";
 
 interface NotFoundProps {
   message?: string;
@@ -12,6 +13,7 @@ interface NotFoundProps {
 
 const NotFound: React.FC<NotFoundProps> = () => (
   <div className="not-found-page">
+    <LoadingBarLine />
     <h2 className="not-found-page__header">
       <FormattedMessage defaultMessage="404" />
     </h2>

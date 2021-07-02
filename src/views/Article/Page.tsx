@@ -4,8 +4,7 @@ import { TinyButton as ScrollUpButton } from "react-scroll-up-button";
 import { usePreferences } from "@hooks";
 
 import { RichTextContent } from "@components/atoms";
-import { Breadcrumb, Breadcrumbs } from "../../components";
-
+import { Breadcrumb, Breadcrumbs, LoadingBarLine } from "../../components";
 import { Article_page } from "./gqlTypes/Article";
 
 import ArtisanVideo from "./Video";
@@ -58,6 +57,7 @@ export const Page: React.FC<PageProps> = ({
 
   return (
     <div className="article-page">
+      <LoadingBarLine />
       <div
         className="article-page__header"
         style={

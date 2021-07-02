@@ -5,6 +5,8 @@ import { FormattedMessage } from "react-intl";
 import { Button, Loader } from "@components/atoms";
 import { OrderTabel } from "@components/molecules";
 
+import { LoadingBarLine } from "../../../components";
+
 import * as S from "./styles";
 import { IProps } from "./types";
 
@@ -24,6 +26,7 @@ export const OrdersHistory: React.FC<IProps> = ({ history }: IProps) => {
     <Loader />
   ) : (
     <>
+      <LoadingBarLine />
       <OrderTabel orders={data?.edges} history={history} />
       {data?.pageInfo.hasNextPage && (
         <S.Wrapper>
