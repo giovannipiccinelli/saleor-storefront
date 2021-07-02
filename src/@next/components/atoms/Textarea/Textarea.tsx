@@ -72,6 +72,7 @@ export const Textarea: React.FC<IProps> = ({
           <InputLabel
             labelBackground={labelBackground}
             active={active || !!value}
+            labelTextarea
           >
             {label}
           </InputLabel>

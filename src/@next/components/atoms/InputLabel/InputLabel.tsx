@@ -7,6 +7,11 @@ export const InputLabel: React.FC<IProps> = ({
   children,
   active,
   labelBackground,
+  labelTextarea,
 }: IProps) => {
-  return <S.Label {...{ active, labelBackground }}>{children}</S.Label>;
+  return (
+    <S.Label {...{ active, labelBackground, labelTextarea }}>
+      {children}
+    </S.Label>
+  );
 };

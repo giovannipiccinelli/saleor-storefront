@@ -11,23 +11,24 @@ export const activeLabelStyles = (
   top: 0;
 `;
 
-const labelStyles = (theme: DefaultTheme) => `
+const labelStyles = (theme: DefaultTheme, labelTextarea: boolean) => `
   left: 1rem;
   padding: 0 0rem;
   background-color: transparent;
   font-size: ${theme.typography.baseFontSize};
-  top: 50%;
+  top: ${labelTextarea ? "25%" : "50%"};
 `;
 
 export const Label = styled.label<{
   active: boolean;
   labelBackground: string | null;
+  labelTextarea: boolean;
 }>`
   position: absolute;
   ${props =>
     props.active
       ? activeLabelStyles(props.theme, props.labelBackground)
-      : labelStyles(props.theme)};
+      : labelStyles(props.theme, props.labelTextarea)};
   transform: translateY(-50%);
   transition: all 0.3s ease, color 0s;
   pointer-events: none;
