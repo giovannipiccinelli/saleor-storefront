@@ -1,7 +1,7 @@
-import classNames from "classnames";
 import * as React from "react";
 import { TinyButton as ScrollUpButton } from "react-scroll-up-button";
 import { usePreferences } from "@hooks";
+import { LazyLoadImage } from "react-lazy-load-image-component";
 
 import { RichTextContent } from "@components/atoms";
 import { Breadcrumb, Breadcrumbs, LoadingBarLine } from "../../components";
@@ -95,33 +95,30 @@ export const Page: React.FC<PageProps> = ({
           <div className="home-page__collections__list">
             {VertImg_1 && (
               <div key={VertImg_1.key}>
-                <div
-                  className={classNames("home-page__collections__list__image")}
-                  style={{
-                    backgroundImage: `url(${VertImg_1.value})`,
-                  }}
+                <LazyLoadImage
+                  alt={VertImg_1Alt}
+                  effect="blur"
+                  src={VertImg_1.value}
                 />
                 <b>{VertImg_1Alt}</b>
               </div>
             )}
             {VertImg_2 && (
               <div key={VertImg_2.key}>
-                <div
-                  className={classNames("home-page__collections__list__image")}
-                  style={{
-                    backgroundImage: `url(${VertImg_2.value})`,
-                  }}
+                <LazyLoadImage
+                  alt={VertImg_2Alt}
+                  effect="blur"
+                  src={VertImg_2.value}
                 />
                 <b>{VertImg_2Alt}</b>
               </div>
             )}
             {HorImg && (
               <div key={HorImg.key}>
-                <div
-                  className={classNames("home-page__collections__list__image")}
-                  style={{
-                    backgroundImage: `url(${HorImg.value})`,
-                  }}
+                <LazyLoadImage
+                  alt={HorImg_Alt}
+                  effect="blur"
+                  src={HorImg.value}
                 />
                 <b>{HorImg_Alt}</b>
               </div>
