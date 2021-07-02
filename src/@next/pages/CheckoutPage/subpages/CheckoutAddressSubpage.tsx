@@ -17,6 +17,8 @@ import { commonMessages } from "@temp/intl";
 import { IAddress, IFormError } from "@types";
 import { filterNotEmptyArrayItems } from "@utils/misc";
 
+import { LoadingBarLine } from "../../../../components";
+
 export interface ICheckoutAddressSubpageHandles {
   submitAddress: () => void;
 }
@@ -215,29 +217,32 @@ const CheckoutAddressSubpageWithRef: RefForwardingComponent<
     }));
 
   return (
-    <CheckoutAddress
-      {...props}
-      shippingErrors={shippingErrors}
-      billingErrors={billingErrors}
-      shippingFormId={checkoutShippingAddressFormId}
-      shippingFormRef={checkoutShippingAddressFormRef}
-      billingFormId={checkoutBillingAddressFormId}
-      billingFormRef={checkoutBillingAddressFormRef}
-      checkoutShippingAddress={checkoutShippingAddress}
-      checkoutBillingAddress={checkoutBillingAddress}
-      billingAsShippingAddress={billingAsShippingState}
-      email={checkout?.email}
-      userAddresses={userAdresses}
-      selectedUserShippingAddressId={selectedShippingAddressId}
-      selectedUserBillingAddressId={selectedBillingAddressId}
-      countries={countries}
-      userId={user?.id}
-      newAddressFormId={checkoutNewAddressFormId}
-      shippingAddressRequired={!!isShippingRequiredForProducts}
-      setShippingAddress={handleSetShippingAddress}
-      setBillingAddress={handleSetBillingAddress}
-      setBillingAsShippingAddress={setBillingAsShippingState}
-    />
+    <>
+      <LoadingBarLine />
+      <CheckoutAddress
+        {...props}
+        shippingErrors={shippingErrors}
+        billingErrors={billingErrors}
+        shippingFormId={checkoutShippingAddressFormId}
+        shippingFormRef={checkoutShippingAddressFormRef}
+        billingFormId={checkoutBillingAddressFormId}
+        billingFormRef={checkoutBillingAddressFormRef}
+        checkoutShippingAddress={checkoutShippingAddress}
+        checkoutBillingAddress={checkoutBillingAddress}
+        billingAsShippingAddress={billingAsShippingState}
+        email={checkout?.email}
+        userAddresses={userAdresses}
+        selectedUserShippingAddressId={selectedShippingAddressId}
+        selectedUserBillingAddressId={selectedBillingAddressId}
+        countries={countries}
+        userId={user?.id}
+        newAddressFormId={checkoutNewAddressFormId}
+        shippingAddressRequired={!!isShippingRequiredForProducts}
+        setShippingAddress={handleSetShippingAddress}
+        setBillingAddress={handleSetBillingAddress}
+        setBillingAsShippingAddress={setBillingAsShippingState}
+      />
+    </>
   );
 };
 

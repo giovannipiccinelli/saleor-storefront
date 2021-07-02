@@ -13,6 +13,8 @@ import { useCheckout } from "@saleor/sdk";
 import { commonMessages } from "@temp/intl";
 import { IFormError } from "@types";
 
+import { LoadingBarLine } from "../../../../components";
+
 export interface ICheckoutPaymentSubpageHandles {
   submitPayment: () => void;
 }
@@ -117,18 +119,21 @@ const CheckoutPaymentSubpageWithRef: RefForwardingComponent<
   };
 
   return (
-    <CheckoutPayment
-      {...props}
-      promoCodeDiscountFormId={promoCodeDiscountFormId}
-      promoCodeDiscountFormRef={promoCodeDiscountFormRef}
-      promoCodeDiscount={{
-        voucherCode: promoCodeDiscount?.voucherCode,
-      }}
-      addPromoCode={handleAddPromoCode}
-      removeVoucherCode={handleRemovePromoCode}
-      submitUnchangedDiscount={handleSubmitUnchangedDiscount}
-      promoCodeErrors={promoCodeErrors}
-    />
+    <>
+      <LoadingBarLine />
+      <CheckoutPayment
+        {...props}
+        promoCodeDiscountFormId={promoCodeDiscountFormId}
+        promoCodeDiscountFormRef={promoCodeDiscountFormRef}
+        promoCodeDiscount={{
+          voucherCode: promoCodeDiscount?.voucherCode,
+        }}
+        addPromoCode={handleAddPromoCode}
+        removeVoucherCode={handleRemovePromoCode}
+        submitUnchangedDiscount={handleSubmitUnchangedDiscount}
+        promoCodeErrors={promoCodeErrors}
+      />
+    </>
   );
 };
 

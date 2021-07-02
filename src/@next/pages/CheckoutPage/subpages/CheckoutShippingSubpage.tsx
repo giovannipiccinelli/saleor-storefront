@@ -11,6 +11,8 @@ import { CheckoutShipping } from "@components/organisms";
 import { useCheckout } from "@saleor/sdk";
 import { IFormError } from "@types";
 
+import { LoadingBarLine } from "../../../../components";
+
 export interface ICheckoutShippingSubpageHandles {
   submitShipping: () => void;
 }
@@ -59,15 +61,18 @@ const CheckoutShippingSubpageWithRef: RefForwardingComponent<
   };
 
   return (
-    <CheckoutShipping
-      {...props}
-      shippingMethods={shippingMethods}
-      selectedShippingMethodId={checkout?.shippingMethod?.id}
-      errors={errors}
-      selectShippingMethod={handleSetShippingMethod}
-      formId={checkoutShippingFormId}
-      formRef={checkoutShippingFormRef}
-    />
+    <>
+      <LoadingBarLine />
+      <CheckoutShipping
+        {...props}
+        shippingMethods={shippingMethods}
+        selectedShippingMethodId={checkout?.shippingMethod?.id}
+        errors={errors}
+        selectShippingMethod={handleSetShippingMethod}
+        formId={checkoutShippingFormId}
+        formRef={checkoutShippingFormRef}
+      />
+    </>
   );
 };
 

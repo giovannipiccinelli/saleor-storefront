@@ -12,6 +12,7 @@ import {
 import { getUserDetailsQuery } from "@saleor/sdk/lib/queries/user";
 import { User } from "@saleor/sdk/lib/fragments/gqlTypes/User";
 import { ShopContext } from "../../components/ShopProvider/context";
+import { LoadingBarLine } from "../../components";
 
 const AddressBook: React.FC<{
   user: User;
@@ -86,6 +87,7 @@ const AddressBook: React.FC<{
 
   return (
     <div className="address-book-container">
+      <LoadingBarLine />
       <AddressGrid
         addresses={userAddresses}
         addNewAddress={() => {

@@ -14,6 +14,8 @@ import { BASE_URL } from "@temp/core/config";
 import { checkoutMessages } from "@temp/intl";
 import { ITaxedMoney } from "@types";
 
+import { LoadingBarLine } from "../../../components";
+
 import { IProps } from "./types";
 
 const title = (
@@ -138,19 +140,27 @@ export const CartPage: React.FC<IProps> = ({}: IProps) => {
 
   if (loaded && items?.length) {
     return (
-      <Cart
-        title={title}
-        button={getCheckoutButton(history, user)}
-        cartHeader={cartHeader}
-        cartFooter={prepareCartFooter(
-          totalPrice,
-          shippingTaxedPrice,
-          promoTaxedPrice,
-          subtotalPrice
-        )}
-        cart={items && generateCart(items, removeItem, updateItem)}
-      />
+      <>
+        <LoadingBarLine />
+        <Cart
+          title={title}
+          button={getCheckoutButton(history, user)}
+          cartHeader={cartHeader}
+          cartFooter={prepareCartFooter(
+            totalPrice,
+            shippingTaxedPrice,
+            promoTaxedPrice,
+            subtotalPrice
+          )}
+          cart={items && generateCart(items, removeItem, updateItem)}
+        />
+      </>
     );
   }
-  return <CartEmpty button={getShoppingButton(history)} />;
+  return (
+    <>
+      <LoadingBarLine />
+      <CartEmpty button={getShoppingButton(history)} />;
+    </>
+  );
 };
