@@ -1,4 +1,14 @@
 import { styled } from "@styles";
+import { keyframes } from "styled-components";
+
+const loadImg = keyframes`
+  0% {
+    filter: blur(20px);
+  }
+  100% {
+    filter: blur(0px);
+  }
+`;
 
 export const Wrapper = styled.div`
   display: grid;
@@ -81,5 +91,6 @@ export const Preview = styled.div`
   img {
     width: 100%;
     object-fit: contain;
+    animation: ${loadImg} 1s;
   }
 `;
