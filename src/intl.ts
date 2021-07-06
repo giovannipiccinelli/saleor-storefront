@@ -194,7 +194,7 @@ export const checkoutMessages = defineMessages({
     defaultMessage: "CONTINUE SHOPPING",
   },
   personalization: {
-    defaultMessage: "Go through personalization",
+    defaultMessage: "Personalize",
   },
 });
 
