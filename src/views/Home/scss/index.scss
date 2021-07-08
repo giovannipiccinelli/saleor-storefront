@@ -14,7 +14,10 @@
     text-align: center;
     padding: 12rem 0;
     margin-top: 90px;
-    animation: load 1s;
+    animation-name: load;
+	  animation-duration: 1s;
+    -webkit-animation-name: load;
+	  -webkit-animation-duration: 1s;
 
     &-text {
       overflow: hidden;
@@ -162,8 +165,10 @@
 @keyframes load {
   0% {
     filter: blur(20px);
+    -webkit-filter: blur(20px);
   }
   100% {
     filter: blur(0px);
+    -webkit-filter: blur(0px);
   }
 }

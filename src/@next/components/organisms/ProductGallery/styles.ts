@@ -4,9 +4,11 @@ import { keyframes } from "styled-components";
 const loadImg = keyframes`
   0% {
     filter: blur(20px);
+    -webkit-filter: blur(20px);
   }
   100% {
     filter: blur(0px);
+    -webkit-filter: blur(0px);
   }
 `;
 

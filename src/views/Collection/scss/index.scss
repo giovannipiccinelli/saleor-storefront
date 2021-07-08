@@ -111,5 +111,6 @@
 @keyframes pulse {
   100% {
     filter: blur(0px);
+    -webkit-filter: blur(0px);
   }
 }
