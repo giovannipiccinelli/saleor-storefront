@@ -57,6 +57,10 @@
   &__image {
     @media (max-width: $medium-screen) {
       margin-bottom: $spacer * 2;
+
+      span {
+        width: 100%;
+      }
     }
     
     img {
@@ -107,5 +111,6 @@
 @keyframes pulse {
   100% {
     filter: blur(0px);
+    -webkit-filter: blur(0px);
   }
 }

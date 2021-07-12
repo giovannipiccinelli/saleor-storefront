@@ -21,7 +21,10 @@
     background-size: cover;
     background-color: $blue-overlay;
     background-blend-mode: multiply;
-    animation: load 1s;
+    animation-name: load;
+	  animation-duration: 1s;
+    -webkit-animation-name: load;
+	  -webkit-animation-duration: 1s;
 
     &__title {
       display: inline-block;
@@ -178,8 +181,10 @@
 @keyframes load {
   0% {
     filter: blur(20px);
+    -webkit-filter: blur(20px);
   }
   100% {
     filter: blur(0px);
+    -webkit-filter: blur(0px);
   }
 }
