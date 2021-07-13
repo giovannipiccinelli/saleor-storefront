@@ -91,6 +91,8 @@ export const Preview = styled.div`
   max-height: 100%;
   overflow: hidden;
   img {
+    display: flex;
+    flex-direction: column;
     width: 100%;
     object-fit: contain;
     animation: ${loadImg} 1s;

@@ -7,6 +7,8 @@
   }
   
   &__hero {
+    display: flex;
+    flex-direction: column;
     background-color: $blue-overlay;
     background-blend-mode: multiply;
     background-size: cover;
