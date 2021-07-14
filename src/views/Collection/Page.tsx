@@ -151,7 +151,10 @@ const Page: React.FC<PageProps> = ({
     : "";
 
   useEffect(() => {
-    document.getElementById("blur").style.filter = "blur(0px)";
+    if (MetaBackground) {
+      document.getElementById("blur").style.filter = "blur(0px)";
+      document.getElementById("blurForBlockText").style.filter = "blur(0px)";
+    }
   }, []);
 
   return (
@@ -247,7 +250,7 @@ const Page: React.FC<PageProps> = ({
             </div>
           </div>
         ) : (
-          <div className="collection-blog">
+          <div className="collection-blog" id="blurForBlockText">
             {collection.id !== "Q29sbGVjdGlvbjo0OQ==" &&
               collection.id !== "Q29sbGVjdGlvbjo1NA==" && (
                 <RichTextContent
