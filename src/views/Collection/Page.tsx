@@ -12,6 +12,7 @@ import {
 } from "react-share";
 
 import * as React from "react";
+import { useEffect } from "react";
 import { TinyButton as ScrollUpButton } from "react-scroll-up-button";
 import { useIntl } from "react-intl";
 
@@ -149,12 +150,17 @@ const Page: React.FC<PageProps> = ({
     ? `https://player.vimeo.com/video/${MetaVideo.value}?title=0&byline=0&portrait=0&loop=1&autopause=0`
     : "";
 
+  useEffect(() => {
+    document.getElementById("blur").style.filter = "blur(0px)";
+  }, []);
+
   return (
     <div className="collection">
       <LoadingBarLine />
       {MetaBackground && (
         <div
           className="article-page__header"
+          id="blur"
           style={
             MetaBackground.value
               ? { backgroundImage: `url(${MetaBackground.value})` }

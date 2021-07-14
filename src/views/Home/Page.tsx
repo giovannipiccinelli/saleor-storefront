@@ -2,6 +2,7 @@ import "./scss/index.scss";
 
 import classNames from "classnames";
 import * as React from "react";
+import { useEffect } from "react";
 import {
   CarouselProvider,
   DotGroup,
@@ -55,6 +56,10 @@ const Page: React.FC<{
   };
   const intl = useIntl();
 
+  useEffect(() => {
+    document.getElementById("blur").style.filter = "blur(0px)";
+  }, []);
+
   return (
     <>
       <script className="structured-data-list" type="application/ld+json">
@@ -62,6 +67,7 @@ const Page: React.FC<{
       </script>
       <div
         className="home-page__hero"
+        id="blur"
         style={
           backgroundImage
             ? { backgroundImage: `url(${backgroundImage.url})` }

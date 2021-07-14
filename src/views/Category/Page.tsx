@@ -1,6 +1,7 @@
 import "./scss/index.scss";
 
 import * as React from "react";
+import { useEffect } from "react";
 import { TinyButton as ScrollUpButton } from "react-scroll-up-button";
 import { useIntl } from "react-intl";
 
@@ -94,10 +95,15 @@ const Page: React.FC<PageProps> = ({
       []
     );
 
+  useEffect(() => {
+    document.getElementById("blur").style.filter = "blur(0px)";
+  }, []);
+
   return (
     <div className="category">
       <div
         className="article-page__header"
+        id="blur"
         style={headerImage ? { backgroundImage: `url(${headerImage})` } : null}
       >
         <span className="article-page__header__title">
