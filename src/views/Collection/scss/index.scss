@@ -5,7 +5,8 @@
     margin-top: -3rem;
     background-color: white;
     padding: 3rem 10rem;
-    animation: pulse 1s;
+    transition: filter 1s;
+    -webkit-transition: filter 1s; /* Safari */
     @media (max-width: $small-screen) {
       padding: 2rem 2rem;
     }
@@ -31,6 +32,9 @@
     background-size: cover;
     background-color: $blue-overlay;
     background-blend-mode: multiply;
+    filter: blur(20px);
+    transition: filter 0.5s;
+    -webkit-transition: filter 0.5s; /* Safari */
 
     &__title {
       background-color: $white;
@@ -105,12 +109,5 @@
       height: 100%;
     }
 
-  }
-}
-
-@keyframes pulse {
-  100% {
-    filter: blur(0px);
-    -webkit-filter: blur(0px);
   }
 }

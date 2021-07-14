@@ -47,9 +47,20 @@ export const CachedImageProduct: React.FC<IImage> = ({
     return children || <PlaceholderImage alt={alt} />;
   }
 
+  React.useEffect(() => {
+    const elementLength = document.getElementsByClassName("blur").length;
+    const currentImg = document.getElementsByClassName("blur")[
+      elementLength - 4
+    ].parentElement;
+    if (currentImg) {
+      currentImg.style.filter = "blur(0px)";
+    }
+  }, []);
+
   return (
     <Magnifier
       imageSrc={url}
+      className="blur"
       imageAlt="Example"
       alwaysInPlace
       largeImageSrc={url} // Optional

@@ -1,16 +1,4 @@
 import { styled } from "@styles";
-import { keyframes } from "styled-components";
-
-const loadImg = keyframes`
-  0% {
-    filter: blur(20px);
-    -webkit-filter: blur(20px);
-  }
-  100% {
-    filter: blur(0px);
-    -webkit-filter: blur(0px);
-  }
-`;
 
 export const Wrapper = styled.div`
   display: grid;
@@ -90,11 +78,11 @@ export const Preview = styled.div`
   width: auto;
   max-height: 100%;
   overflow: hidden;
+  filter: blur(20px);
+  transition: filter 0.5s;
+  -webkit-transition: filter 0.5s;
   img {
-    display: flex;
-    flex-direction: column;
     width: 100%;
     object-fit: contain;
-    animation: ${loadImg} 1s;
   }
 `;

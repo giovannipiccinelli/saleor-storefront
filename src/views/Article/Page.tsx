@@ -55,11 +55,16 @@ export const Page: React.FC<PageProps> = ({
     ? `https://player.vimeo.com/video/${MetaVideo.value}?title=0&byline=0&portrait=0&loop=1&autopause=0`
     : "";
 
+  React.useEffect(() => {
+    document.getElementById("blur").style.filter = "blur(0px)";
+  }, []);
+
   return (
     <div className="article-page">
       <LoadingBarLine />
       <div
         className="article-page__header"
+        id="blur"
         style={
           MetaBackground
             ? { backgroundImage: `url(${MetaBackground.value})` }

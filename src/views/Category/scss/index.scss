@@ -19,6 +19,9 @@
     background-size: cover;
     background-color: $blue-overlay;
     background-blend-mode: multiply;
+    filter: blur(20px);
+    transition: filter 0.5s;
+    -webkit-transition: filter 0.5s; /* Safari */
 
     &__title {
       background-color: $white;
