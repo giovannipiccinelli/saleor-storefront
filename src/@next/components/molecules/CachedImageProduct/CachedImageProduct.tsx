@@ -49,11 +49,13 @@ export const CachedImageProduct: React.FC<IImage> = ({
 
   React.useEffect(() => {
     const elementLength = document.getElementsByClassName("blur").length;
-    const currentImg = document.getElementsByClassName("blur")[
-      elementLength - 4
-    ].parentElement;
-    if (currentImg) {
-      currentImg.style.filter = "blur(0px)";
+    if (elementLength) {
+      const currentImg = document.getElementsByClassName("blur")[
+        elementLength - 4
+      ].parentElement;
+      if (currentImg) {
+        currentImg.style.filter = "blur(0px)";
+      }
     }
   }, []);
 
