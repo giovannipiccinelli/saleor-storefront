@@ -15,18 +15,15 @@
   }
 
   &__header {
-    display: flex;
-    flex-direction: column;
     text-align: center;
     padding-top: $spacer * 4.5;
     padding-bottom: $spacer * 4.5;
     background-size: cover;
     background-color: $blue-overlay;
     background-blend-mode: multiply;
-    animation-name: load;
-	  animation-duration: 1s;
-    -webkit-animation-name: load;
-	  -webkit-animation-duration: 1s;
+    filter: blur(20px);
+    transition: filter 0.3s;
+    -webkit-transition: filter 0.3s; /* Safari */
 
     &__title {
       display: inline-block;
@@ -177,16 +174,5 @@
         }
       }
     }
-  }
-}
-
-@keyframes load {
-  0% {
-    filter: blur(20px);
-    -webkit-filter: blur(20px);
-  }
-  100% {
-    filter: blur(0px);
-    -webkit-filter: blur(0px);
   }
 }
